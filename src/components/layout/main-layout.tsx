@@ -27,7 +27,6 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarInset,
-  SidebarTitle,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -63,7 +62,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
         <SidebarHeader className="p-4">
           <div className="flex items-center gap-3">
             <Logo />
-            <SidebarTitle className="text-xl font-semibold">Stellary</SidebarTitle>
+            <span className="text-xl font-semibold group-data-[collapsible=icon]:hidden">Stellary</span>
           </div>
         </SidebarHeader>
         <SidebarContent>
