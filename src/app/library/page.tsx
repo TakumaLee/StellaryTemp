@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, Filter, Star, BookOpen } from "lucide-react";
+import { Label } from "@/components/ui/label";
 
 const placeholderContent = [
   { id: "1", type: "Novel", title: "The Cosmic Labyrinth", author: "Jane Stellaris", genre: "Sci-Fi", image: "https://placehold.co/300x450.png?text=Novel+1", dataAiHint: "book cover" },
