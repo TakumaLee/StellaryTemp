@@ -8,8 +8,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Mail, ExternalLink } from "lucide-react" // Using ExternalLink as a generic icon
 
+// Import Firebase auth and the initialized app
+import { auth } from "@/lib/firebase"; // This will ensure firebase is initialized
 import {
-  getAuth,
   signInWithPopup,
   GoogleAuthProvider,
   OAuthProvider, // For Apple
@@ -41,7 +42,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
   async function onOAuthSignIn(providerName: "google" | "apple") {
     setIsLoading(true);
-    const auth = getAuth(); // Assumes Firebase is initialized elsewhere in your app
+    // auth is now imported from @/lib/firebase, ensuring it's initialized
 
     let provider;
     if (providerName === "google") {
@@ -190,5 +191,3 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     </div>
   )
 }
-
-    
