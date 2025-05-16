@@ -7,37 +7,38 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// IMPORTANT: ENSURE THESE VALUES ARE CORRECTLY POPULATED, PREFERABLY VIA ENVIRONMENT VARIABLES.
+// IMPORTANT: ENSURE THESE VALUES ARE CORRECTLY POPULATED WITH YOUR *NEW* FIREBASE PROJECT'S CREDENTIALS,
+// PREFERABLY VIA ENVIRONMENT VARIABLES.
 // Create a .env.local file in your project root and add your Firebase config there:
-// NEXT_PUBLIC_FIREBASE_API_KEY=your_actual_api_key
-// NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_actual_auth_domain
-// NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_actual_project_id
-// NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_actual_storage_bucket
-// NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_actual_messaging_sender_id
-// NEXT_PUBLIC_FIREBASE_APP_ID=your_actual_app_id
-// NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_actual_measurement_id (Optional)
+// NEXT_PUBLIC_FIREBASE_API_KEY=your_new_project_api_key
+// NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_new_project_auth_domain
+// NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_new_project_project_id
+// NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_new_project_storage_bucket
+// NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_new_project_messaging_sender_id
+// NEXT_PUBLIC_FIREBASE_APP_ID=your_new_project_app_id
+// NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_new_project_measurement_id (Optional)
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "YOUR_API_KEY_PLACEHOLDER",
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "YOUR_AUTH_DOMAIN_PLACEHOLDER",
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "YOUR_PROJECT_ID_PLACEHOLDER",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "YOUR_STORAGE_BUCKET_PLACEHOLDER",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "YOUR_MESSAGING_SENDER_ID_PLACEHOLDER",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "YOUR_APP_ID_PLACEHOLDER",
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "YOUR_MEASUREMENT_ID_PLACEHOLDER" // Optional
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "YOUR_NEW_PROJECT_API_KEY",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "YOUR_NEW_PROJECT_AUTH_DOMAIN",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "YOUR_NEW_PROJECT_PROJECT_ID",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "YOUR_NEW_PROJECT_STORAGE_BUCKET",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "YOUR_NEW_PROJECT_MESSAGING_SENDER_ID",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "YOUR_NEW_PROJECT_APP_ID",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "YOUR_NEW_PROJECT_MEASUREMENT_ID" // Optional
 };
 
-// CRITICAL DEBUGGING STEP FOR 'auth/unauthorized-domain':
+// CRITICAL DEBUGGING STEP FOR 'auth/unauthorized-domain' or when switching projects:
 console.log(
   "===================================================================\n" +
-  "Firebase Config YOUR APP IS LOADING:\n" +
+  "Firebase Config YOUR APP IS LOADING (Verify these for your NEW project):\n" +
   "-------------------------------------------------------------------\n" +
   `  Project ID: ${firebaseConfig.projectId}\n` +
   `  Auth Domain: ${firebaseConfig.authDomain}\n` +
   "-------------------------------------------------------------------\n" +
-  "==> STEP 1: Compare the 'Project ID' and 'Auth Domain' printed above with the values in your Firebase project settings at https://console.firebase.google.com/.\n" +
-  "==> STEP 2: In that Firebase project, ensure 'localhost' (and any other domains your app runs on) is listed under 'Authorized domains' (Firebase Console > Authentication > Sign-in method).\n" +
-  "==> STEP 3: If there's a mismatch in Project ID/Auth Domain, or if 'localhost' is missing from authorized domains for THIS project, update your .env.local file with the CORRECT credentials and RESTART your Next.js server.\n" +
+  "==> STEP 1: If you have switched Firebase projects, ensure the 'Project ID' and 'Auth Domain' printed above match your NEW Firebase project settings at https://console.firebase.google.com/.\n" +
+  "==> STEP 2: Update your .env.local file with the CORRECT credentials for the NEW project and RESTART your Next.js server.\n" +
+  "==> STEP 3: In your NEW Firebase project, ensure 'localhost' (and any other domains your app runs on) is listed under 'Authorized domains' (Firebase Console > Authentication > Sign-in method).\n" +
   "==================================================================="
 );
 
